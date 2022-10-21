@@ -38,26 +38,9 @@
         max-width: 10rem;
     }
 
-    li {
-        display: inline-block;
-        font-size: 1.5em;
-        list-style-type: none;
-        padding: 1em;
-    }
-
-    li span {
-        display: block;
-        font-size: 4.5rem;
-    }
-
-    .emoji {
-        display: none;
-        padding: 1rem;
-    }
-
-    .emoji span {
-        font-size: 4rem;
-        padding: 0 .5rem;
+    .countdown {
+        font-size: 2.5rem;
+        margin-top: 1rem;
     }
 
     @media all and (max-width: 768px) {
@@ -79,7 +62,7 @@
 <div class="container">
     <img src="/mickey.gif">
     <h1 id="headline">Countdown to the Disney trip</h1>
-    <p id="demo"></p>
+    <time id="timer" class="countdown"></time>
 </div>
 
 <script>
@@ -101,14 +84,13 @@
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Display the result in the element with id="demo"
-        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+        document.getElementById("timer").innerHTML = days + "d " + hours + "h "
             + minutes + "m " + seconds + "s ";
 
         // If the count down is finished, write some text
         if (distance < 0) {
             clearInterval(x);
-            document.getElementById("demo").innerHTML = "EXPIRED";
+            document.getElementById("timer").innerHTML = "WE'RE GOING TO DISNEY!!!";
         }
     }, 1000);
 </script>
