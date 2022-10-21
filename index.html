@@ -1,97 +1,80 @@
-<style>
-    /* general styling */
-    :root {
-        --smaller: .75;
-    }
+<!DOCTYPE html>
 
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+<head>
+    <title>Disney Trip Countdown</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link href="https://fonts.cdnfonts.com/css/new-walt-disney-font" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    html,
-    body {
-        height: 100%;
-        margin: 0;
-    }
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
 
-    body {
-        align-items: center;
-        background-color: #136AB4;
-        display: flex;
-        font-family: 'New Walt Disney Font', sans-serif;
-        color: #fff;
-    }
+        body {
+            align-items: center;
+            background-color: #136AB4;
+            display: flex;
+            font-family: 'New Walt Disney Font', sans-serif;
+            color: #fff;
+        }
 
-    .container {
-        margin: -5rem auto 0;
-        text-align: center;
-    }
+        .container {
+            margin: -5rem auto 0;
+            text-align: center;
+        }
 
-    h1 {
-        font-weight: normal;
-        font-size: 3rem;
-    }
-
-    img {
-        max-width: 10rem;
-    }
-
-    .countdown {
-        font-size: 5rem;
-        margin-top: 1rem;
-    }
-
-    @media all and (max-width: 768px) {
         h1 {
-            font-size: calc(1.5rem * var(--smaller));
+            font-weight: normal;
+            font-size: 3rem;
         }
 
-        li {
-            font-size: calc(1.125rem * var(--smaller));
+        img {
+            max-width: 10rem;
         }
 
-        li span {
-            font-size: calc(3.375rem * var(--smaller));
+        .countdown {
+            font-size: 5rem;
+            margin-top: 1rem;
         }
-    }
-</style>
-<title>Disney Trip Countdown</title>
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link href="http://fonts.cdnfonts.com/css/new-walt-disney-font" rel="stylesheet">
-<div class="container">
-    <img src="/mickey.gif">
-    <h1 id="headline">Countdown to the Disney trip</h1>
-    <time id="timer" class="countdown"></time>
-</div>
+    </style>
+</head>
 
-<script>
-    // Set the date we're counting down to
-    var countDownDate = new Date("Sep 16, 2023 0:0:0").getTime();
+<body>
+    <div class="container">
+        <img src="/mickey.gif">
+        <h1 id="headline">Countdown to the Disney trip</h1>
+        <time id="timer" class="countdown"></time>
+    </div>
+    <script>
+        var countDownDate = new Date("Sep 16, 2023 0:0:0").getTime();
 
-    // Update the count down every 1 second
-    var x = setInterval(function () {
+        var x = setInterval(function () {
 
-        // Get today's date and time
-        var now = new Date().getTime();
+            var now = new Date().getTime();
 
-        // Find the distance between now and the count down date
-        var distance = countDownDate - now;
+            var distance = countDownDate - now;
 
-        // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        document.getElementById("timer").innerHTML = days + "d " + hours + "h "
-            + minutes + "m " + seconds + "s ";
+            document.getElementById("timer").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
 
-        // If the count down is finished, write some text
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("timer").innerHTML = "WE'RE GOING TO DISNEY!!!";
-        }
-    }, 1000);
-</script>
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "WE'RE GOING TO DISNEY!!!";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
